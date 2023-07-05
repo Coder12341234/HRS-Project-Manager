@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head><title>Your Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+h2{
+  color: white;
+  font-family: Inter,sans-serif;
+  font-size: 35px;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
+}
+#search {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 75%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  color: black;
+}
+table, th, td {
+  color: white;
+  border:1px solid white;
+  padding: 5px;
+  font-size: 25px;
+  font-family: Inter,sans-serif;
+  text-transform: uppercase;
+  height: 25px;
+}
+td{
+  text-align: center;
+}
+.home_button {
+   background-color: #00d2ff;
+   border: none;
+   color: black;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   font-weight: bold;
+   border-radius: 8px;
+   float: right;
+}
+</style>
+<script>
+function TypetoSearch() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("project_list");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+</head>
+<body style="background-color:black;">
+<h2>
+Your Projects
+</h2>
+
+<input type="text" id="search" onkeyup="TypetoSearch()" placeholder="Search Your Name Here.." title="Search Here">
+<table id="project_list" style="width:100%">
+  <tr>
+
+    <th>Project Name</th>
+    <th>Date of Creation</th>
+	<th>Created By</th>
+	<th>Assignee</th>
+  </tr>
+  <tr>
+    
+    <td>Hotel Dossier</td>
+    <td>10/10/2023</td>
+	<td>PQRST</td>
+	<td>XYZ</td>
+  </tr>
+  <tr>
+    
+    <td>Flight Dossier</td>
+    <td>11/10/2023</td>
+	<td>PQRST</td>
+	<td>ABC</td>
+  </tr>
+  <tr>
+    
+    <td>Pay Dossier</td>
+    <td>15/10/2023</td>
+	<td>GHIJK</td>
+	<td>ABC</td>
+  </tr>
+</table>
+<a href="Home.html">
+<button id="home_button_all" class="home_button">Back To Home</button></a>
+</body>
+</html>
